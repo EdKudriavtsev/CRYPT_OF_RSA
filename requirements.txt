@@ -1,0 +1,13 @@
+# Engine
+Django~=4.0.4
+Pillow~=9.0.1
+crispy-bootstrap5==0.6
+
+# Forms
+django-crispy-forms~=1.14.0
+
+# Codestyle
+pylint~=2.12.2
+pylint-django~=2.5.2
+pycodestyle~=2.8.0
+
