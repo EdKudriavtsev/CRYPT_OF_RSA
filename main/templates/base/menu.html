@@ -1,0 +1,27 @@
+<nav class="navbar navbar-expand-lg navbar-light">
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+
+            {% for item in menu %}
+            <li class="nav-item">
+                <a class="lead nav-link h6 text-black me-2 mb-0" href="{% url item.url_name %}">{{ item.name }}</a>
+            </li>
+            {% endfor %}
+
+            <li class="nav-item">
+                <a class="lead nav-link h6 text-black me-2 mb-0" href="{% url 'index' %}">Шифратор</a>
+            </li>
+            <li class="nav-item">
+                <a class="lead nav-link h6 text-black me-2 mb-0" href="{% url 'index' %}">Руководство</a>
+            </li>
+            {% if not request.user.is_authenticated %}
+            <li class="nav-item">
+                <a class="lead nav-link h6 text-primary mx-3 mb-0"
+                   href="{% url 'registration' %}">Зарегистрироваться</a>
+            </li>
+            {% endif %}
+
+
+        </ul>
+    </div>
+</nav>
