@@ -28,8 +28,3 @@ class Cipher:
                     pass
             result.append(str(decrypted_letter))
         return ''.join(result)
-
-
-encrypted_str = Cipher.encrypt('abcd', 422113, 1270807)
-print(encrypted_str)
-print(Cipher.decrypt(encrypted_str, 606193, 1270807))

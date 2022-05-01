@@ -1,0 +1,36 @@
+{% extends 'base/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<form method="post" class="col-8 mx-auto mt-3" action="#">
+    {% csrf_token %}
+    <div class="container">
+        <div class="row mt-5" align="center">
+            <div class="col">
+                {{form.text}}
+            </div>
+            <div class="col">
+            <textarea name="output" rows="10" cols="39"
+                      placeholder="Здесь будет показан результат шифрования или расшифрования"
+                      readonly>{{result}}</textarea>
+            </div>
+        </div>
+        <div class="row mt-5 text-center" align="center">
+            <div class="col">
+                {{form.key}}
+            </div>
+            <div class="col">
+                {{form.key2}}
+            </div>
+            <div class="col">
+                {{form.encrypt_decrypt}}
+            </div>
+        </div>
+        <div class="row">
+            <button class="btn mt-4 bottom rounded text-center" style="background-color: #ABF26D;" type="submit">Вычислить
+            </button>
+        </div>
+    </div>
+</form>
+
+{% endblock %}

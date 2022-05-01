@@ -32,6 +32,7 @@ urlpatterns = [
     path('registration/', views.registration_page, name='registration'),
 
     path('', views.index_page, name='index'),
+    path('cipher/', views.cipher_page, name='cipher'),
 
     path('profile/', views.profile_page, name='profile'),
     path('profile/<int:user_id>/edit/', views.profile_edit_page, name='profile_edit'),

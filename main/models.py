@@ -1,7 +1,23 @@
 from __future__ import annotations
 
-from django.contrib.auth import get_user_model
+import datetime
+
 from django.contrib.auth.models import User
 from django.db import models
-from django.templatetags.static import static
 
+
+class CipherHistory(models.Model):
+    str_in = models.TextField(max_length=255)
+    key = models.IntegerField()
+    key2 = models.IntegerField()
+    result = models.TextField(max_length=511)
+    author = models.ForeignKey(to=User, on_delete=models.CASCADE)
+    date = models.DateField(default=datetime.date.today)
+
+
+class KeyGenHistory(models.Model):
+    private_key = models.IntegerField()
+    public_key = models.IntegerField()
+    module_num = models.IntegerField()
+    author = models.ForeignKey(to=User, on_delete=models.CASCADE)
+    date = models.DateField(default=datetime.date.today)

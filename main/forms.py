@@ -39,3 +39,25 @@ class EditProfileForm(forms.Form):
         label='Email',
         required=True
     )
+
+
+class CipherForm(forms.Form):
+    text = forms.CharField(
+        label='Исходный текст',
+        required=True,
+        widget=forms.Textarea(attrs={'placeholder': 'Введите текст для шифрования...'})
+    )
+    key = forms.IntegerField(
+        label='ключ',
+        required=True,
+        widget=forms.NumberInput(attrs={'placeholder': 'ключ'})
+    )
+    key2 = forms.IntegerField(
+        label='число n',
+        required=True,
+        widget=forms.NumberInput(attrs={'placeholder': 'число n'})
+    )
+    encrypt_decrypt = forms.ChoiceField(label='', choices=(
+        ("1", "Зашифровать"),
+        ("2", "Расшифровать"),
+    ))
