@@ -1,6 +1,6 @@
 from prime_numbers import get_prime_nums
 from random import randint
-from math_functions import gcd, find_mod_inverse, binary_search
+from math_functions import find_mod_inverse, binary_search
 
 
 class KeyGen:
@@ -27,7 +27,7 @@ class KeyGen:
 
     def calculate_public(self):
         L = binary_search(self.prime_numbers, self.F)
-        self.e = self.prime_numbers[L - randint(0, L // 2)]
+        self.e = self.prime_numbers[L - randint(1, L // 2)]
 
     def calculate_private(self):
         count = 0
@@ -40,13 +40,12 @@ class KeyGen:
             return True
 
     def main_generate(self):
-        self.generate_prime()
-        self.calculate_module()
-        self.calculate_public()
-        if self.calculate_private():
-            return [[self.d, self.n], [self.e, self.n]]
-        else:
-            self.main_generate()
+        while True:
+            self.generate_prime()
+            self.calculate_module()
+            self.calculate_public()
+            if self.calculate_private():
+                return [self.e, self.d, self.n]
 
 
-KeyGen().main_generate()
+print(KeyGen().main_generate())

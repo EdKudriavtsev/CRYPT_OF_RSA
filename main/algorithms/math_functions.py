@@ -11,15 +11,6 @@ def is_prime(n):
     return res
 
 
-def gcd(a, b):
-    while a != 0 and b != 0:
-        if a > b:
-            a %= b
-        else:
-            b %= a
-    return a if b == 0 else b
-
-
 def find_mod_inverse(num1, num2):
     if num1 == 0:
         return num2, 0, 1
