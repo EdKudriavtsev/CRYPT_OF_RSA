@@ -8,8 +8,7 @@
 
   {% if request.user.is_authenticated %}
       <div class="dropdown position-relative" style="width:15%;">
-        <a class="lead position-absolute top-50 start-0 translate-middle-y nav-link me-5" href="{% url 'profile' %}">{{ user.username }}</a>
-          <img src="{{ avatar }}"
+          <img src="{% static 'imgs/profile_default_avatar.png' %}"
                title="Аватар пользователя"
                width="75px"
                height="70px"

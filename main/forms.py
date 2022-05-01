@@ -4,7 +4,7 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse
 
-from main.models import User, UserAvatar
+from main.models import User
 
 
 class RegistrationForm(UserCreationForm):
@@ -39,11 +39,3 @@ class EditProfileForm(forms.Form):
         label='Email',
         required=True
     )
-
-
-class UploadUserAvatarForm(forms.ModelForm):
-    class Meta:
-        model = UserAvatar
-        fields = ['user', 'image']
-        widgets = {'user': forms.HiddenInput()}
-        labels = {'image': 'Фотография профиля'}
