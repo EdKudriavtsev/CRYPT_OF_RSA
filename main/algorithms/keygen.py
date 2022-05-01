@@ -46,6 +46,3 @@ class KeyGen:
             self.calculate_public()
             if self.calculate_private():
                 return [self.e, self.d, self.n]
-
-
-print(KeyGen().main_generate())
