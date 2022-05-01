@@ -1,3 +1,5 @@
+from sqlite3 import IntegrityError
+
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
@@ -57,10 +59,13 @@ def profile_edit_page(request, user_id):
         form = EditProfileForm(request.POST)
 
         if form.is_valid():
-            user.username = form.cleaned_data['username']
-            user.email = form.cleaned_data['email']
-            user.save()
-            messages.success(request, 'Изменения сохранены', 'alert-success')
+            try:
+                user.username = form.cleaned_data['username']
+                user.email = form.cleaned_data['email']
+                user.save()
+                messages.success(request, 'Изменения сохранены', 'alert-success')
+            except IntegrityError:
+                messages.error(request, 'Данное имя уже существует', 'alert-error')
 
         return redirect('profile')
     return render(request, 'pages/profile/profile_edit.html', context)
