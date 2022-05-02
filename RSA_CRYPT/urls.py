@@ -1,4 +1,4 @@
-"""simple_votings URL Configuration
+"""CipherGen URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.0/topics/http/urls/
@@ -34,6 +34,7 @@ urlpatterns = [
     path('', views.index_page, name='index'),
     path('cipher/', views.cipher_page, name='cipher'),
     path('keygen/', views.keygen_page, name='keygen'),
+    path('help/', views.help_page, name='help'),
 
     path('profile/', views.profile_page, name='profile'),
     path('profile/<int:user_id>/edit/', views.profile_edit_page, name='profile_edit'),

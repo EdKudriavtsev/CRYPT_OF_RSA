@@ -5,7 +5,6 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 
-
 from main.models import User, CipherHistory, KeyGenHistory
 from django.shortcuts import get_object_or_404
 from django.shortcuts import render, redirect
@@ -140,3 +139,7 @@ def keygen_page(request):
         new_record.save()
 
     return render(request, 'pages/keygen.html', context)
+
+
+def help_page(request):
+    return render(request, 'pages/help.html', get_base_context('Справка'))
