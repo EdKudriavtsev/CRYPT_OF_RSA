@@ -33,6 +33,7 @@ urlpatterns = [
 
     path('', views.index_page, name='index'),
     path('cipher/', views.cipher_page, name='cipher'),
+    path('keygen/', views.keygen_page, name='keygen'),
 
     path('profile/', views.profile_page, name='profile'),
     path('profile/<int:user_id>/edit/', views.profile_edit_page, name='profile_edit'),

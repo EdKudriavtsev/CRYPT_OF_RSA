@@ -4,14 +4,17 @@ from sqlite3 import IntegrityError
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
-from main.models import User, CipherHistory
+
+
+from main.models import User, CipherHistory, KeyGenHistory
 from django.shortcuts import get_object_or_404
 from django.shortcuts import render, redirect
 from django.urls import reverse
 
 from main.forms import EditProfileForm, RegistrationForm, CipherForm
 
-from main.algorithms.cipher import Cipher
+from algorithms.cipher import Cipher
+from algorithms.keygen import KeyGen
 
 
 def get_menu_context():
@@ -123,3 +126,17 @@ def cipher_page(request):
         context['form'] = CipherForm()
 
     return render(request, 'pages/cipher.html', context)
+
+
+def keygen_page(request):
+    context = get_base_context('Генерация ключей шифрования')
+    keys = KeyGen().main_generate()
+    context['keys'] = keys
+    if request.user.is_authenticated:
+        records = KeyGenHistory.objects.filter(author=request.user).order_by('-date')[:4]
+        context['records'] = records
+        new_record = KeyGenHistory(date=datetime.datetime.now(), private_key=keys[1], public_key=keys[0],
+                                   module_num=keys[2], author=request.user)
+        new_record.save()
+
+    return render(request, 'pages/keygen.html', context)

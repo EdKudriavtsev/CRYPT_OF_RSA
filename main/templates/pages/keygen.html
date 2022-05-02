@@ -1,0 +1,41 @@
+{% extends 'base/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container text-center">
+    <div class="row mt-5">
+        <p>Публичный ключ: {{keys.0}}</p>
+        <p>Приватный ключ: {{keys.1}}</p>
+        <p>Число n: {{keys.2}}</p>
+    </div>
+    <a href="{%url 'keygen'%}" class="btn mt-4 bottom rounded text-center" style="background-color: #ABF26D;">
+        Новая генерация
+    </a>
+</div>
+{% if request.user.is_authenticated %}
+<br>
+<br>
+<div class="container">
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">Публичный ключ</th>
+            <th scope="col">Приватный ключ</th>
+            <th scope="col">Число n</th>
+            <th scope="col">Дата</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for record in records %}
+        <tr>
+            <td>{{record.public_key}}</td>
+            <td>{{record.private_key}}</td>
+            <td>{{record.module_num}}</td>
+            <td>{{record.date}}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endif %}
+{% endblock %}

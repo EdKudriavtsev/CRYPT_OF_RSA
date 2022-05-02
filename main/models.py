@@ -12,7 +12,7 @@ class CipherHistory(models.Model):
     key2 = models.IntegerField()
     result = models.TextField(max_length=511)
     author = models.ForeignKey(to=User, on_delete=models.CASCADE)
-    date = models.DateField(default=datetime.date.today)
+    date = models.DateTimeField(default=datetime.datetime.now)
 
 
 class KeyGenHistory(models.Model):
@@ -20,4 +20,4 @@ class KeyGenHistory(models.Model):
     public_key = models.IntegerField()
     module_num = models.IntegerField()
     author = models.ForeignKey(to=User, on_delete=models.CASCADE)
-    date = models.DateField(default=datetime.date.today)
+    date = models.DateTimeField(default=datetime.datetime.now)

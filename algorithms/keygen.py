@@ -1,6 +1,6 @@
-from prime_numbers import get_prime_nums
 from random import randint
-from math_functions import find_mod_inverse, binary_search
+from .math_functions import find_mod_inverse, binary_search
+from .prime_numbers import get_prime_nums
 
 
 class KeyGen:
