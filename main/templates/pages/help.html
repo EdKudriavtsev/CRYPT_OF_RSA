@@ -1,9 +1,53 @@
 {% extends 'base/base.html' %}
 {% load static %}
-
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+{% endblock %}
 
 {% block content %}
-<div class="container" align="center">
-    <iframe height="450" src="{% static 'help_presentation.pdf' %}" width="600"></iframe>
-</div>
+<section class="section">
+    <div class="container">
+
+        <div class="section__header">
+            <h3 class="section__suptitle">Tips for users</h3>
+            <h2 class="section__title">Краткое пояснение работы алгоритма</h2>
+        </div>
+
+        <div class="services">
+            <div class="services__item">
+                <div class="services__title">Алгоритм шифрования</div>
+                <div class="services__text">На данном сайте реализован основной алгоритм асимметричного шифрования(RSA),
+                    предполагающий наличие двух ключей(приватный и публичный) у каждого пользователя. Публичный ключ
+                    известен любому пользователю, а приватный держится в секрете.
+                </div>
+            </div>
+            <div class="services__item">
+                <div class="services__item__">
+                    <img src="{% static 'imgs/index/index.jpeg' %}" alt="">
+                </div>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="services">
+            <div class="services__item">
+                <div class="services__item__">
+                    <img src="{% static 'imgs/index/index.jpeg' %}" alt="">
+                </div>
+            </div>
+            <div class="services__item">
+                <div class="services__title">Значение ключей</div>
+                <div class="services__text">Как уже говорилось ранее, у каждого пользователя есть два ключа. Если
+                    пользователь А хочет отправить свое сообщение пользователю В, он использует публичный ключ
+                    пользователя В.
+                    Пользователь В же, в свою очередь, расшифровывает сообщение своим приватным ключом и получает
+                    исходный текст.
+                </div>
+            </div>
+        </div>
+
+    </div><!-- /.container -->
+</section>
 {% endblock %}
