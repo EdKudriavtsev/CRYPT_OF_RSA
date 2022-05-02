@@ -21,40 +21,11 @@
     <div class="container">
 
         <div class="section__header">
-            <h3 class="section__suptitle">What we do</h3>
+            <h3 class="section__suptitle">What it does</h3>
             <h2 class="section__title">Немного о сервисе</h2>
             <div class="section__text">
                 <p>Сервис поможет вам лучше разобраться в принципе работы основного алгоритма асимметричного
-                    шифрования</p>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="card__item">
-                <div class="card__inner">
-                    <div class="card__img">
-                        <img src="{% static 'imgs/index/add.jpeg' %}" alt="">
-                    </div>
-                    <div class="card__text">генерация ключей</div>
-                </div>
-            </div>
-
-            <div class="card__item">
-                <div class="card__inner">
-                    <div class="card__img">
-                        <img src="{% static 'imgs/index/review.jpg' %}" alt="">
-                    </div>
-                    <div class="card__text">шифрование текстов</div>
-                </div>
-            </div>
-
-            <div class="card__item">
-                <div class="card__inner">
-                    <div class="card__img">
-                        <img src="{% static 'imgs/index/add.jpeg' %}" alt="">
-                    </div>
-                    <div class="card__text">расшифрование текстов</div>
-                </div>
+                    шифрования, используемого по всему миру.</p>
             </div>
         </div>
 
@@ -67,16 +38,15 @@
 
         <div class="section__header">
             <h3 class="section__suptitle">Tips for users</h3>
-            <h2 class="section__title">Как правильно пользоваться</h2>
+            <h2 class="section__title">Краткое пояснение работы алгоритма</h2>
         </div>
 
         <div class="services">
             <div class="services__item">
-                <div class="services__title">Разделение пользователей</div>
-                <div class="services__text">Пользователи нашего сайта делятся на представителей магазинов и покупателей.
-                    Покупатели могут просто искать и сравнивать товары, а могут создавать карточки этих самых товаров.
-                    Представители магазинов в свою очередь подтверждают существование того или иного товара на полках
-                    своего магазина и дают определённые баллы за созданные карточки
+                <div class="services__title">Алгоритм шифрования</div>
+                <div class="services__text">На данном сайте реализован основной алгоритм асимметричного шифрования(RSA),
+                    предполагающий наличие двух ключей(приватный и публичный) у каждого пользователя. Публичный ключ
+                    известен любому пользователю, а приватный держится в секрете.
                 </div>
             </div>
             <div class="services__item">
@@ -95,10 +65,13 @@
                 </div>
             </div>
             <div class="services__item">
-                <div class="services__title">Баллы и бонусы</div>
-                <div class="services__text">Как уже говорилось ранее, за каждую созданную карточку товара представитель
-                    магазина начисляет создателю баллы. Эти баллы прописываются в личном кабинете пользователя. Они в
-                    последствии конвертируются в скидки в магазинах спонсорах. На что идёт скидка решает сам магазин.
+                <div class="services__title">Значение ключей</div>
+                <div class="services__text">Как уже говорилось ранее, у каждого пользователя есть два ключа. Если
+                    пользователь А хочет отправить свое сообщение пользователю В, он использует публичный ключ
+                    пользователя В.
+                    Пользователь В же, в свою очередь, расшифровывает сообщение своим приватным ключом и получает
+                    исходный текст. Более
+                    подробное объяснение Вы найдете в разделе "Справка".
                 </div>
             </div>
         </div>
