@@ -2,9 +2,10 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-<form method="post" class="mx-auto mt-3" action="#">
-    {% csrf_token %}
-    <div class="container">
+<div class="container">
+    <form method="post" class="col-8 mx-auto mt-3" action="#">
+        {% csrf_token %}
+
         <div class="row mt-5" align="center">
             <div class="col">
                 {{form.text}}
@@ -15,22 +16,50 @@
                       readonly>{{result}}</textarea>
             </div>
         </div>
-        <div class="row mt-5 text-center" align="center">
-            <div class="col">
+        <div class="row mt-5" align="center">
+            <div class="col text-right">
                 {{form.key}}
             </div>
-            <div class="col">
+            <div class="col text-center">
                 {{form.key2}}
             </div>
-            <div class="col">
+            <div class="col text-left">
                 {{form.encrypt_decrypt}}
             </div>
         </div>
         <div class="row">
-            <button class="btn mt-4 bottom rounded text-center" style="background-color: #ABF26D;" type="submit">Вычислить
+            <button class="btn mt-4 bottom rounded text-center" style="background-color: #ABF26D;" type="submit">
+                Вычислить
             </button>
         </div>
-    </div>
-</form>
-
+    </form>
+</div>
+{% if request.user.is_authenticated %}
+<br>
+<br>
+<div class="container">
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">Входные данные</th>
+            <th scope="col">Ключ</th>
+            <th scope="col">Число n</th>
+            <th scope="col">Результат</th>
+            <th scope="col">Дата</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for record in records %}
+        <tr>
+            <td>{{record.str_in}}</td>
+            <td>{{record.key}}</td>
+            <td>{{record.key2}}</td>
+            <td>{{record.result}}</td>
+            <td>{{record.date}}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endif %}
 {% endblock %}

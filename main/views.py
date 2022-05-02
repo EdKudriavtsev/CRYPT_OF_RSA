@@ -92,6 +92,9 @@ def registration_page(request):
 
 def cipher_page(request):
     context = get_base_context('Шифратор')
+    if request.user.is_authenticated:
+        records = CipherHistory.objects.filter(author=request.user)
+        context['records'] = records
     if request.method == 'POST':
         form = CipherForm(request.POST)
         if form.is_valid():
