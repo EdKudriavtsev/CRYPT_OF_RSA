@@ -24,7 +24,7 @@
             </div>
             <div class="services__item">
                 <div class="services__item__">
-                    <img src="{% static 'imgs/index/index.jpeg' %}" alt="">
+                    <img src="{% static 'imgs/help/basics.png' %}" width="570" height="380" alt="">
                 </div>
             </div>
         </div>
@@ -34,9 +34,22 @@
         <div class="services">
             <div class="services__item">
                 <div class="services__item__">
-                    <img src="{% static 'imgs/index/index.jpeg' %}" alt="">
+                    <img src="{% static 'imgs/help/generate.png' %}" width="570" height="380" alt="">
                 </div>
             </div>
+            <div class="services__item">
+                <div class="services__title">Генерация ключей</div>
+                <div class="services__text">
+                    Ключи генерируются с помощью расширенного алгоритма Диффи-Хеллмана. В результате у пользователя
+                    генерируются 3 ключа: приватный, публичный, а также модульное число, которое используется в паре с
+                    каждым из ключей.
+                </div>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="services">
             <div class="services__item">
                 <div class="services__title">Значение ключей</div>
                 <div class="services__text">Как уже говорилось ранее, у каждого пользователя есть два ключа. Если
@@ -44,6 +57,28 @@
                     пользователя В.
                     Пользователь В же, в свою очередь, расшифровывает сообщение своим приватным ключом и получает
                     исходный текст.
+                </div>
+            </div>
+            <div class="services__item">
+                <div class="services__item__">
+                    <img src="{% static 'imgs/help/messages.png' %}" width="570" height="380" alt="">
+                </div>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="services">
+            <div class="services__item">
+                <div class="services__item__">
+                    <img src="{% static 'imgs/help/efficacy.png' %}" width="570" height="380" alt="">
+                </div>
+            </div>
+            <div class="services__item">
+                <div class="services__title">Эффективность работы</div>
+                <div class="services__text">
+                    Как и любой другой алгоритм асимметричного шифрования, RSA требует большое количество времени для
+                    обработки информации.
                 </div>
             </div>
         </div>
